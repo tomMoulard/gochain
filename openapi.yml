@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  version: 1.0.2
+  title: blockchain's API
+  description: tcom's API
+servers:
+  - url: 'http://0.0.0.0:8000'
+
+paths:
+  /add:
+    post:
+      summary: Ajouter un block dans la blockchain
+      description: >
+          Cette requête permet d'ajouter un block dans la chaine.
+          Ce block aura comme data ce qui est donnée en paramètre de cet appel.
+          Et il aura le hash du dernier block stocké dans ses données.
+          Cet ensemble de donnée sera ensuite hashé et on aura le hash final
+          du block.
+      responses:
+        '200':
+          description: Est-ce bon ?
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    done:
+                        type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
