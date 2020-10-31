@@ -159,7 +159,7 @@ func main() {
 
 	HTTP_IP := os.Getenv("IP")
 	HTTP_PORT := os.Getenv("PORT")
-	DB_HOST := "postgresql"
+	DB_HOST := os.Getenv("POSTGRES_URL")
 	DB_USER := "postgres"
 	DB_PASS := os.Getenv("POSTGRES_PASSWORD")
 
